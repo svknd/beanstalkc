@@ -48,7 +48,7 @@ class Connection(object):
                  connect_timeout=socket.getdefaulttimeout()):
         if parse_yaml is True:
             try:
-                parse_yaml = __import__('yaml').load
+                parse_yaml = __import__('yaml').safe_load
             except ImportError:
                 logging.error('Failed to load PyYAML, will not parse YAML')
                 parse_yaml = False
